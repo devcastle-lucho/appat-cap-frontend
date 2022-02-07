@@ -1,13 +1,44 @@
 import { RouteInfo } from './sidebar.metadata';
 
 export const ROUTES: RouteInfo[] = [
- 
+  {
+    path: '',
+    title: 'Dashboard',
+    icon: 'bi bi-arrow-down-circle-fill',
+    class: '',
+    extralink: true,
+    submenu: []
+  },
   {
     path: '/dashboard',
     title: 'Dashboard',
     icon: 'bi bi-speedometer2',
     class: '',
     extralink: false,
+    submenu: []
+  },
+  {
+    path: '',
+    title: 'Pages',
+    icon: 'bi bi-arrow-down-circle-fill',
+    class: '',
+    extralink: true,
+    submenu: []
+  },
+  {
+    path: '/pages/centro-costos',
+    title: 'Centro de costos',
+    icon: 'bi bi-arrow-right-circle',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
+    path: '',
+    title: 'Components',
+    icon: 'bi bi-arrow-down-circle-fill',
+    class: '',
+    extralink: true,
     submenu: []
   },
   {

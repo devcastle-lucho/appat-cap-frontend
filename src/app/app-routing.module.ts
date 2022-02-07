@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { FullComponent } from './layouts/full/full.component';
+import { NgModule } from '@angular/core';
 
 export const Approutes: Routes = [
   {
@@ -12,6 +12,10 @@ export const Approutes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'pages',
+        loadChildren: () => import('./pages/page.module').then(m => m.PageModule)
       },
       {
         path: 'about',
