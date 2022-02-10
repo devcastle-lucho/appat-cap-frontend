@@ -1,1 +1,49 @@
-<p>Hola mundo</p>
+<div class="card">
+  <div class="card-header bg-danger bg-gradient text-white">
+    Mantenimiento de centros de costos
+  </div>
+  <div class="card-body">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn  btn-outline-primary me-md-2" type="button" >Nuevo</button>
+    </div>
+    <div class="row animate__animated animate__fadeIn text-center mt-4" *ngIf="cargando">
+      <div class="col-sm-12">
+        <div class="alert alert-warning" role="alert">
+          <strong>Cargando</strong>
+          <br>
+          <i class="fas fa-sync  fa-spin fa-2x"  aria-hidden="true"></i>
+          <br>
+          <span>Espere por favor</span>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-striped  table-responsive" *ngIf="!cargando">
+      <thead class="thead-default">
+        <tr>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cc of lista">
+            <td scope="row">{{cc.codigo}}</td>
+            <td>{{cc.nombre | titlecase}}</td>
+            <td>
+              <button type="button" class="btn btn-outline-dark btn-sm">
+                <i class="fa fa-edit"></i>
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-outline-danger btn-sm">
+                <i class="fa fa-times"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+
+  </div>
+</div>

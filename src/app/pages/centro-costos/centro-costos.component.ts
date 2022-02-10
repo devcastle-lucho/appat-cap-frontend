@@ -9,6 +9,7 @@ import { CentroCostosService } from './../../services/centro-costos.service';
   styleUrls: ['./centro-costos.component.scss']
 })
 export class CentroCostosComponent implements OnInit, DoCheck, AfterContentInit {
+  cargando:boolean = false;
   lista: CentroCostos[] = [];
 
   constructor(public centroCostosService: CentroCostosService) { }
@@ -25,9 +26,16 @@ export class CentroCostosComponent implements OnInit, DoCheck, AfterContentInit 
   }
 
   public listar(): void {
+    this.lista = [];
+    this.cargando =true;
     this.centroCostosService.listar()
-    .subscribe((data:any) => {
+    .subscribe((data:CentroCostos[]) => {
       console.log(data);
-    });
+      this.lista = data;
+      this.cargando =false;
+    },
+    (error: any) => {
+      this.cargando =false;
+    })    ;
   }
 }
