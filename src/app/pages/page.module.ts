@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CentroCostosComponent } from './centro-costos/centro-costos.component';
 import { CommonModule } from '@angular/common';
+import { ModalGuardarComponent } from './centro-costos/modal-guardar.component';
 import { NgModule } from '@angular/core';
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    CentroCostosComponent
+    CentroCostosComponent,
+    ModalGuardarComponent
   ],
   imports: [
     CommonModule,

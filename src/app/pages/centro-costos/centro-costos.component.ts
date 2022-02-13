@@ -2,6 +2,8 @@ import { AfterContentInit, Component, DoCheck, OnInit } from '@angular/core';
 
 import { CentroCostos } from './../../models/centrocostos.model';
 import { CentroCostosService } from './../../services/centro-costos.service';
+import { ModalGuardarComponent } from './modal-guardar.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-centro-costos',
@@ -11,8 +13,10 @@ import { CentroCostosService } from './../../services/centro-costos.service';
 export class CentroCostosComponent implements OnInit, DoCheck, AfterContentInit {
   cargando:boolean = false;
   lista: CentroCostos[] = [];
+  centroCostosActual:CentroCostos = {};
 
-  constructor(public centroCostosService: CentroCostosService) { }
+  constructor(public centroCostosService: CentroCostosService,
+              private modalService:NgbModal) { }
 
   ngOnInit(): void {
     console.log('ngOnInit');
@@ -37,5 +41,21 @@ export class CentroCostosComponent implements OnInit, DoCheck, AfterContentInit 
     (error: any) => {
       this.cargando =false;
     })    ;
+  }
+  public nuevo(): void {
+    console.log('nuevo');
+    this.mostrarModal('NUEVO');
+  }
+
+  public mostrarModal(tipo: string):void {
+    const modalRef = this.modalService.open(ModalGuardarComponent, {size:'lg'});
+    //Enviar informacion a la instacia del componente:
+    modalRef.componentInstance.tipo =tipo;
+    modalRef.componentInstance.centroCostos = this.centroCostosActual;
+
+    //Obtener el resultado cuando se cierra de alguna forma el modal.
+    modalRef.result.then((result) => {
+      console.log(result);
+    });
   }
 }
