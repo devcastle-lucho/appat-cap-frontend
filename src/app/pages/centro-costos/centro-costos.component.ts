@@ -58,4 +58,5 @@ export class CentroCostosComponent implements OnInit, DoCheck, AfterContentInit 
       console.log(result);
     });
   }
+
 }

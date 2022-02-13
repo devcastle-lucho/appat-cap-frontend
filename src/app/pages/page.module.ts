@@ -2,8 +2,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CentroCostosComponent } from './centro-costos/centro-costos.component';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ModalGuardarComponent } from './centro-costos/modal-guardar.component';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -22,8 +24,10 @@ const routes: Routes = [
     ModalGuardarComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ReactiveFormsModule
   ]
 })
 export class PageModule { }
