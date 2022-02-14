@@ -32,12 +32,14 @@
             <td scope="row">{{cc.codigo}}</td>
             <td>{{cc.nombre | titlecase}}</td>
             <td>
-              <button type="button" class="btn btn-outline-dark btn-sm">
+              <button type="button" class="btn btn-outline-dark btn-sm"
+              (click)="editar(cc)">
                 <i class="fa fa-edit"></i>
               </button>
             </td>
             <td>
-              <button type="button" class="btn btn-outline-danger btn-sm">
+              <button type="button" class="btn btn-outline-danger btn-sm"
+                (click)="eliminar(cc.id)">
                 <i class="fa fa-times"></i>
               </button>
             </td>

@@ -3,7 +3,7 @@ import { HttpHeaders } from "@angular/common/http";
 export const BASE_ENDPOINT ='http://localhost:8085/api/v1';
 //export const BASE_ENDPOINT ='/api/v1';
 
-export const TOKEN ='eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBRE1JTklTVFJBRE9SIiwiZXhwIjoxNjQ0NzI0OTg5LCJpYXQiOjE2NDQ3MjEzODl9.Prk6YaKOYBmUi3lGR-YEljtzkUarcDkDLreLMoFNNB2oqCuKUKsZ3PtNpNvFBzO2RvLjOoFY_NlA6N-jpvsfRQ';
+export const TOKEN ='eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBRE1JTklTVFJBRE9SIiwiZXhwIjoxNjQ0ODA0OTQ2LCJpYXQiOjE2NDQ4MDEzNDZ9.L4g---KlxXpM7I9IlysRvo64yby6N3jEwmuoDr9qHiUWp3M-o7jn0knbvwhi1n8ok0YfGZMzPnCHM49k4bkxlQ';
 
 
 export const HTTP_OPTIONS = {
