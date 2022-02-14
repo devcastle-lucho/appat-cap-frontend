@@ -33,7 +33,7 @@ export class ModalGuardarComponent implements OnInit {
   }
   private crearFormulario(): void {
     this.formCC = this.fb.group({
-      codigo: ['',Validators.required],
+      codigo: ['',[Validators.required, Validators.pattern('^[0-9]*$'), Validators.maxLength(2)]],
       nombre: ['',Validators.required],
     });
   }
@@ -43,9 +43,26 @@ export class ModalGuardarComponent implements OnInit {
       nombre: this.centroCostos.nombre
     });
   }
-
+  get f() {
+    return this.formCC?.controls;
+  }
+  get codigoNoValido(){
+    return this.formCC?.get('codigo')?.invalid && this.formCC.get('codigo')?.touched;
+  }
+  get nombreNoValido(){
+    return this.formCC?.get('nombre')?.invalid && this.formCC.get('nombre')?.touched;
+  }
   public guardar():void {
     console.log(this.formCC);
+    if(this.formCC?.invalid) {
+      Object.values(this.formCC.controls).forEach((control)=> {
+        if(control instanceof FormGroup) {
+          Object.values(control.controls).forEach((control2)=>control2.markAsTouched() );
+        } else control.markAsTouched();
+      });
+      Swal.fire('Mensaje','¡Datos inválidos!','warning');
+      return;
+    }
     Swal.fire({
       title:'Confirmación',
       text:'¿Está seguro de guardar el registro?',
@@ -73,6 +90,8 @@ export class ModalGuardarComponent implements OnInit {
       this.activeModal.close('OK');
     },
     (error: any) => {
+      console.log(error);
+      console.log(error.error);
       Swal.fire('Confirmación','¡Hubo problemas al guardar el registro de centro de costos!','error');
     });
   }

@@ -15,7 +15,7 @@
       <div class="col-2">
         <label for="codigo" class="col-form-label">Código</label>
       </div>
-      <div class="col-auto">
+      <div class="col-auto d-flex flex-column ">
         <input
           type="text"
           name="codigo"
@@ -24,13 +24,23 @@
           class="form-control bg-white"
           formControlName="codigo"maxlength="2" placeholder="00"
         />
+        <div *ngIf="codigoNoValido">
+          <small class="text-danger fst-italic"
+          *ngIf="f.codigo?.errors.required">
+            Ingrese el código
+          </small>
+          <small class="text-danger fst-italic"
+          *ngIf="f.codigo?.errors.pattern">
+            Debe ser número
+          </small>
+        </div>
       </div>
     </div>
     <div class="row mb-3">
       <div class="col-2">
         <label for="nombre" class="col-form-label">Nombre</label>
       </div>
-      <div class="col-10">
+      <div class="col-10 d-flex flex-column">
         <input
           type="text"
           name="nombre"
@@ -39,6 +49,9 @@
           class="form-control bg-white"
           formControlName="nombre"maxlength="100"
         />
+        <small class="text-danger fst-italic" *ngIf="nombreNoValido">
+          Ingrese el nombre
+        </small>
       </div>
     </div>
   </div>
